@@ -39,9 +39,47 @@
       background-color: #ffab91;
     }
 
+    .form-container {
+      background-color: #ffffffcc;
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
     iframe {
       width: 100%;
-      height: 80vh;
+      height: 60vh;
       border: none;
       box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
     }
@@ -67,11 +105,32 @@
     <a href="https://news.google.com/" target="contentFrame">News</a>
   </nav>
 
+  <div class="form-container">
+    <form onsubmit="submitForm(event)">
+      <label for="name">Student Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
   <iframe name="contentFrame" src="https://en.wikipedia.org/wiki/School"></iframe>
 
   <footer>
     © 2025 Sunrise Public School | All Rights Reserved
   </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      alert("Thank you, " + name + "! Your age (" + age + ") has been recorded.");
+    }
+  </script>
 
 </body>
 </html>
